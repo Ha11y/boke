@@ -1,6 +1,6 @@
 <template>
-     <div>
-              <div id="loginDiv">
+    <div class="container">
+        <div id="loginDiv">
         <form action="" id="form">
             <h1 style="text-align: center;color: aliceblue;">立即登录</h1>
             <p>用户名:<input v-model="Username" type="text"></p>
@@ -8,12 +8,14 @@
             <p>密码: <input v-model="Password" type="password" placeholder="密码长度至少为6位"></p>
             <p style="text-align: center;color: darkgray;"><a href="#">忘记密码?</a></p>
             <div style="text-align: center;margin-top: 30px;">
-                <input type="button" class="button" value="登录" @click="login_click()">
-                <input type="button" class="button" value="注册" onclick="register_click()">
+                <input type="button" class="button" value="登录" @click="login_click">
+                <input type="button" class="button" value="注册" @click="register_click">
             </div>
         </form>
     </div>
-        </div>
+    </div>
+      
+    
      
    
 
@@ -30,7 +32,7 @@ const Username=ref("")
 const Password=ref("")
  const getUser =async ()=>{
        const res=await getUserApi(Username.value,Password.value)
-       user.value=res
+       user.value=res.data
        console.log(res)
  }
  const login_click= async ()=>{
@@ -41,7 +43,6 @@ const Password=ref("")
     router.replace('/')
     }
     else{
-     
         ElMessage({type:"warning",message:"登录失败"})
     }
  }
@@ -54,7 +55,16 @@ const Password=ref("")
             padding: 0;
             
         }
-        
+        .container{
+  position: relative;
+            width: 1920px;
+            height: 931px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url(../assets/image/background.jpg) no-repeat center center fixed;
+            background-size: cover;
+        }
         
         #loginDiv {
             width: 400px;
@@ -97,8 +107,9 @@ const Password=ref("")
             height: 31px;
             font-size: 16px;
         }
-    </style>
-    <style type="text/css">
         input::-ms-input-placeholder{text-align: center;}
         input::-webkit-input-placeholder{text-align: center;}
+   
+ 
+        
 </style>

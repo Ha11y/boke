@@ -9,3 +9,10 @@ export const getUserApi=(username,password)=>{
         }
     })
 }
+//注册用户
+export const createUserApi=()=>{
+      return request({
+        method:"post",
+        url:'/auth/register'
+      })
+}
