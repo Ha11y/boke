@@ -9,7 +9,7 @@ const httpInstance= axios.create({
 //axios请求拦截器
 httpInstance.interceptors.request.use(config=>{
     //从pinia 中获取token数据
-    config.headers.Authorization="Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY5MDk0NTYwNCwiZXhwIjoxNjkxMDMyMDA0fQ.KVXDlmAf1EqxJi2e8VBT7srFVkqDB332wbdPxF9NAXY"
+    config.headers.Authorization="Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY5MTA1MjY3MCwiZXhwIjoxNjkxMTM5MDcwfQ.fJeccGD234Uq5mt3mISbwsXNzM2BbVWHYNiXPTdBNz0"
     return config
 },e=>Promise.reject(e))
 
